@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simple</title>
+</head>
+<body>
+    <h1>SEGUNDA PRACTICA</h1>
+    <form id="calc-form">
+        <input type="number" id="a" placeholder="Número 1" required>
+        <input type="number" id="b" placeholder="Número 2" required>
+        <select id="operation">
+            <option value="add">Sumar</option>
+            <option value="subtract">Restar</option>
+            <option value="multiply">Multiplicar</option>
+            <option value="divide">Dividir</option>
+        </select>
+        <button type="submit">Calcular</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('calc-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const a = document.getElementById('a').value;
+            const b = document.getElementById('b').value;
+            const operation = document.getElementById('operation').value;
+            fetch(`/${operation}?a=${a}&b=${b}`)
+                .then(response => response.text())
+                .then(result => {
+                    document.getElementById('result').innerText = result;
+                });
+        });
+    </script>
+</body>
+</html>
