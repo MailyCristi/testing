@@ -20,7 +20,7 @@ app.get('/add', (req, res) => {
 
 app.get('/subtract', (req, res) => {
   const { a, b } = req.query;
-  const result = parseFloat(a) - parseFloat(b);
+  const result = parseFloat(a) * parseFloat(b);
   res.send(`Resultado: ${result}`);
 });
 
