@@ -36,3 +36,13 @@ describe('GET /add', () => {
       .expect('Resultado: NaN', done); // Cambia esto si deseas manejar errores de manera diferente
   });
 });
+describe('GET /subtract', () => {
+  it('should return the sum of two numbers', (done) => {
+    request(app)
+      .get('/subtract')
+      .query({ a: 5, b: 3 })
+      .expect('Content-Type', /text/)
+      .expect(200)
+      .expect('Resultado: 2', done);
+  });
+});
