@@ -53,4 +53,12 @@ describe('GET /subtract', () => {
       .expect(200)
       .expect('Resultado: 2', done);
   });
+  it('should handle floating point numbers', (done) => {
+    request(app)
+      .get('/subtract')
+      .query({ a: 15, b: 8 })
+      .expect('Content-Type', /text/)
+      .expect(200)
+      .expect('Resultado: 7', done);
+  });
 });
