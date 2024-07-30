@@ -13,7 +13,7 @@ describe('GET /add', () => {
   it('should return the sum of two numbers', (done) => {
     request(app)
       .get('/add')
-      .query({ a: 7, b: 3 })
+      .query({ a: 5, b: 3 })
       .expect('Content-Type', /text/)
       .expect(200)
       .expect('Resultado: 8', done);
