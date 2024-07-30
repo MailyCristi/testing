@@ -80,4 +80,12 @@ describe('GET /multiply', () => {
       .expect(200)
       .expect('Resultado: 9', done);
   });
+  it('should handle floating point numbers', (done) => {
+    request(app)
+      .get('/multiply')
+      .query({ a: 4, b: 5 })
+      .expect('Content-Type', /text/)
+      .expect(200)
+      .expect('Resultado: 9', done);
+  });
 });
