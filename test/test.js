@@ -62,3 +62,22 @@ describe('GET /subtract', () => {
       .expect('Resultado: 7', done);
   });
 });
+describe('GET /multiply', () => {
+  it('should return the sum of two numbers', (done) => {
+    request(app)
+      .get('/multiply')
+      .query({ a: 5, b: 3 })
+      .expect('Content-Type', /text/)
+      .expect(200)
+      .expect('Resultado: 15', done);
+  });
+
+  it('should handle floating point numbers', (done) => {
+    request(app)
+      .get('/multiply')
+      .query({ a: 3, b: 3 })
+      .expect('Content-Type', /text/)
+      .expect(200)
+      .expect('Resultado: 9', done);
+  });
+});
