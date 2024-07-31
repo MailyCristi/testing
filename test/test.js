@@ -91,7 +91,7 @@ describe('GET /multiply', () => {
   it('should handle floating point numbers', (done) => {
     request(app)
       .get('/multiply')
-      .query({ a: 7, b: 3 })
+      .query({ a: 5, b: 3 })
       .expect('Content-Type', /text/)
       .expect(200)
       .expect('Resultado: 21', done);
