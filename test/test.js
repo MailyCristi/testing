@@ -102,6 +102,6 @@ describe('GET /multiply', () => {
       .query({ a: 2, b: 2 })
       .expect('Content-Type', /text/)
       .expect(200)
-      .expect('Resultado: 10', done);
+      .expect('Resultado: 4', done);
   });
 });
